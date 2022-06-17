@@ -1,0 +1,244 @@
+<!DOCTYPE <html>
+    
+<html>
+
+<head>
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chat app</title>
+
+    <link rel="stylesheet" href="log_in.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+ 
+ <!--==================== icon libraries ====================-->
+
+ <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+
+</head>
+
+<body>
+    
+
+  <h2> Online Kopyahan APP</h2>
+<div class="container" id="container">
+  
+	<div class="form-container sign-up-container">
+		<form id="register">
+      
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="#" class="social" id="fb"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social" id="google"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social" id="linkin" ><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your email for registration</span>
+			<input type="email" name="email" placeholder="Enter your email..."  id="email" required />
+            <input type="password" name="password" placeholder="Enter your password..." id="password" required />
+			<button type="button" id="signup-btn">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form id="login">
+			<h1>Sign in</h1>
+			<div class="social-container">
+				<a href="#" class="social" id="fb1"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social" id="google1"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social" id="linkin1" ><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your account</span>
+            <input type="email" name="email" placeholder="Enter your email..." id="emails" required />
+			<input type="password" name="password" placeholder="Enter your password..." id="passwords"  required />
+			<a href="#">Forgot your password?</a>
+            <button type="button" id="login-btn">Login</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<menu>
+ 
+  <a href="#popUp" class="trigger" id="openPopUp"><i class="uil uil-info-circle"></i></a>
+  
+  </menu>
+  
+
+
+
+<!-- POP UP -->
+<aside id="popUp" class="popup">
+  <div class="popUpContainer">
+     <header>
+      <a href="#!" class="closePopUp">X</a>
+      <h2>ABOUT</h2>
+     </header>
+    <article>
+     <p>
+
+
+      This web application is not involving or collecting data of the user.
+      This is used for educational and entertainment purposes only.
+
+     </p> 
+
+     <p>
+      Developer : Michael L. Villegas BSIT 2 - Self taught web Developer
+     </p> 
+    
+    </article>
+ </div>        
+ <a href="#!" class="closePopUpOutSide"></a>    
+</aside>
+
+
+
+
+
+<script src="log_in.js"></script>
+
+
+
+<!--==================== to hide inspect view source ====================-->
+
+          
+
+
+  <script>
+    document.addEventListener("keydown", (e) => {
+      // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+      // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+      // THIS WILL ONLY DISABLE CONTROL AND F12
+      if (e.ctrlKey || e.keyCode==123) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    });
+    </script>
+
+<script>
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+}, false);
+</script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<!-- Below is the additional script for Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+<script>
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
+  
+
+</script> 
+<script>
+  
+    const firebaseConfig = {
+        apiKey: "AIzaSyDDmz-fa7GOnak5FYNNHUPzevZh6yDU6VE",
+        authDomain: "web-chat-app-9cf92.firebaseapp.com",
+        projectId: "web-chat-app-9cf92",
+        storageBucket: "web-chat-app-9cf92.appspot.com",
+        messagingSenderId: "738635393094",
+        appId: "1:738635393094:web:4263a027cefae00e45c247",
+        measurementId: "G-3SQ43R5RQD"
+      };
+  firebase.initializeApp(firebaseConfig);
+
+  const auth = firebase.auth();
+
+
+
+  const signupBtn = document.querySelector('#signup-btn');
+  signupBtn.addEventListener('click', e => {
+  e.preventDefault();
+
+  const email = document.querySelector('#email').value;
+  const password = document.querySelector('#password').value;
+
+  auth.createUserWithEmailAndPassword(email, password).then(cred => {
+    alert('User created successfully');
+})
+
+
+.catch((error) => {
+  const errorCode = error.code;
+  const errorMessage = error.message;
+  // ..
+  alert(errorMessage);
+});
+
+});
+
+
+const loginBtn = document.querySelector('#login-btn');
+loginBtn.addEventListener('click', e => {
+e.preventDefault();
+
+const email = document.querySelector('#emails').value;
+const password = document.querySelector('#passwords').value;
+
+auth.signInWithEmailAndPassword(email, password)
+  .then(cred => {
+    alert('User login successfully');
+    window.location.href = "main_chat.html";
+  })
+  
+  
+
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+    alert(errorMessage);
+});
+
+
+
+});
+
+auth.onAuthStateChanged(user => {
+  if (user) {
+    console.log(user.email + " is logged in!");
+  } else {
+    console.log('User is logged out!');
+  }
+});
+
+
+
+
+
+
+
+
+
+</script>
+
+  
+
+
+
+</body>
+
+</html>
+

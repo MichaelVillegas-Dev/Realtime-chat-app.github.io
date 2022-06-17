@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Firebase RealTime Chat</title>
+    <link rel="stylesheet" href="teacher_room.css">
+   
+ <!--==================== icon libraries ====================-->
+
+ <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+
+  </head>
+  <body>
+    
+
+
+    <!--===== Boxicons CSS =====-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+     
+    <!--<title>Custom Dropdown Select Menu</title>-->
+</head>
+<body>
+
+
+
+
+      <div id="container">
+        
+    <div class="clock">
+     
+        <div class="display">
+        
+  </div>
+  </div>
+        <aside>
+            <header>
+                
+    <div class="select-menu">
+        <div class="select-btn">
+            <span class="sBtn-text">Select room</span>
+            <i class="bx bx-chevron-down"></i>
+        </div>
+
+        <ul class="options">
+           
+            <ul>
+                <li>
+                    <img src="images/logo.jpg" alt="">
+                    <div>
+                        <a href="main_chat.html"><h2>GLOBAL ROOM</h2></a>
+                        <h3>
+                            <span class="status orange"></span>
+                            Open for everyone
+                        </h3>
+                    </div>
+                </li>
+                <li>
+                    <img src="images/bsit.png" alt="">
+                    <div>
+                        <a href="bsit_room.html"> <h2>BSIT ROOM</h2></a>
+                        <h3>
+                            <span class="status orange"></span>
+                            For computer programming student only
+                        </h3>
+                    </div>
+                </li>
+                <li>
+                    <img src="images/crim.jpg" alt="">
+                    <div>
+                        <a href="bsed_room.html"><h2>BSED ROOM</h2></a>
+                        <h3>
+                            <span class="status green"></span>
+                            For education student only
+                        </h3>
+                    </div>
+                </li>
+                <li>
+                    <img src="images/DEpEd Logo.jpg" alt="">
+                    <div>
+                        <a href="bscrim_room.html"><h2>BSCRIM ROOM</h2></a> 
+                        <h3>
+                            <span class="status orange"></span>
+                            For criminology student only
+                        </h3>
+                    </div>
+                </li>
+                
+                <li>
+                    <img src="images/logo.jpg" alt="">
+                    <div>
+                        <a href="teacher_room.html"><h2>TEACHER'S ROOM</h2></a>
+                        <h3>
+                            <span class="status orange"></span>
+                            Teacher's only
+                        </h3>
+                    </div>
+                </li>
+                
+            </ul>
+
+        </ul>
+    </div>
+    <h1>Light / Dark Mode Toggle</h1>
+    <label class="switch">
+      <input type="checkbox" onclick="changeMode()">
+      <span class="slider"></span>
+    </label>
+            </header>
+          
+
+          
+
+        </aside>
+        <main>
+            <header>
+                <img src="images/logo.jpg" alt="">
+                <div>
+                    <h2>RealTime Chat Room</h2>
+                    <h3>TEACHER Room</h3>
+                </div>
+
+               
+            
+            </header>
+            
+        
+              <div class="chat-message" id="chat">
+                <!-- messages will display here -->
+         
+
+                <ul class="message-area" id="messages-teachers"></ul>
+
+            
+          
+               
+            </ul>
+            <footer>
+
+                <!-- form to send message -->
+                <form class="message" id="message-form">
+                
+                    <textarea id="message-input" type="text" placeholder="Type your message" name="text" required="text" ></textarea>
+            
+                
+            
+        
+                    <button class="send-button" id="message-btn" type="submit">Send</button>
+
+                </form>
+
+              
+            </footer>
+        </div>
+        </main>
+    </div>
+
+
+
+
+
+
+    <menu>
+        <a href="https://web.facebook.com/mike.villz.5" class="action"> <i class="bx bxl-facebook-circle" style="color: #4267B2;"></i></a>
+        <a href="https://www.instagram.com/michaelvillegas52700/" class="action"> <i class="bx bxl-instagram-alt" style="color: #E1306C;"></i></a>
+        <a href="https://discord.com/channels/@me" class="action"> <i class="bx bxl-discord-alt" style="color: #72aaf5;"></i></a>
+        <a href="https://github.com/MichaelVillegas-Dev" class="action">  <i class="bx bxl-github" style="color: #171515;"></i></a>
+        <a href="#" class="trigger"><i class="uil uil-envelope-heart"></i></a>
+      </menu>
+      
+
+
+
+
+
+
+
+
+
+
+    <!-- scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="teacher_room.js"></script>
+
+  </body>
+</html>
